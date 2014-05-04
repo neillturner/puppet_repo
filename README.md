@@ -1,2 +1,1 @@
-puppet_repo
-===========
+# puppet_repo for testing puppet modules using test kitchen and jenkins
