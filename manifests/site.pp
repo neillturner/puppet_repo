@@ -9,7 +9,7 @@
 #  
 #  For example:
 #   If prefix is set to mycompany 
-#        it will go directly to the mycompany-base  module and runthe init class
+#        it will go directly to the mycompany_base  module and runthe init class
 #   Otherwise it will call the class role::base      
 #
 node default {
@@ -20,14 +20,14 @@ node default {
      $hiera_role1 = hiera('role::role_name1','')
      if $hiera_role1 != '' {
         notify {"*** Found heira role::role_name1 value ${hiera_role1} ignoring all facter role values ***": }
-	    $role_name1 = hiera('role::role_name1','')
+	$role_name1 = hiera('role::role_name1','')
         $role_name2 = hiera('role::role_name2','')
         $role_name3 = hiera('role::role_name3','')
-  	    $role_name4 = hiera('role::role_name4','')
-	 }	
-    # class { 'role': }
-	# Or to do Direct Module Prefix 
-	class { 'role' : prefix => 'mycompany' } 
+  	$role_name4 = hiera('role::role_name4','')
+     }	
+     # class { 'role': }
+     # Or to do Direct Module Prefix 
+     class { 'role' : prefix => 'mycompany' } 
  } 
 
 

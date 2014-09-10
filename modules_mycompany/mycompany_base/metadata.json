@@ -1,0 +1,23 @@
+{
+  "name": "mycompany_base",
+  "version": "0.0.1",
+  "author": "neillturner",
+  "license": "Licensed under (Apache 2.0)",
+  "summary": "A module for a base server",
+  "source": "UNKNOWN",
+  "project_page": "",
+  "issues_url": "",
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "5.0", "6.0" ]
+    },
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "12.04", "10.04" ]
+    }
+   ]
+  "dependencies": [
+    { "name": "puppetlabs/ntp", "version_requirement": ">= 3.0.0" },
+  ]
+}

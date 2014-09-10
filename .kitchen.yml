@@ -5,9 +5,10 @@ driver:
 provisioner:
   name: puppet_apply
   manifests_path:  manifests
-  modules_path: modules-mycompany
+  modules_path: modules_mycompany
   hiera_data_path: hieradata
   require_puppet_omnibus: false
+  require_chef_for_busser: false
   puppet_omnibus_url: bad_url
   puppet_debug: true
   puppet_verbose: true
