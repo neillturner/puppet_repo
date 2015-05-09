@@ -29,5 +29,8 @@ platforms:
   - name: centos-6.4
     driver:  vagrant
 
+verifier:
+  ruby_bindir: '/usr/bin'
+  
 suites:
   - name: default
