@@ -16,7 +16,7 @@ provisioner:
   facterlib: /etc/somewhere
 #  facter_file: facter/kitchen.rb
   install_custom_facts: true
-  librarian_puppet_ssl_file: 'C:/repository/dev-ops-objects/estatesgazette/cacert.pem'
+  librarian_puppet_ssl_file: 'C:/repository/puppet_repo/cacert.pem'
 #  puppet_yum_repo: 'https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm'
   puppet_debug: true
   puppet_verbose: true
