@@ -1,11 +1,13 @@
 # == Class: mycompany_base
 #
 # classes to run for the base role
-# class parameters can be coded here or resolved via the hiera parameter hierachy 
+# class parameters can be coded here or resolved via the hiera parameter hierachy
 #
-class mycompany_base 
+class mycompany_base
 {
 
- class { 'ntp': }
- 
+  notify { 'test': }
+  notify { $::hello: }
+# class { 'ntp': }
+
 }

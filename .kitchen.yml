@@ -10,6 +10,14 @@ provisioner:
   require_puppet_omnibus: false
   require_chef_for_busser: false
   puppet_omnibus_url: bad_url
+#  custom_options: '--no-stringify_facts'
+#  puppet_environment: sit_wcs02
+  require_puppet_collections: true
+  facterlib: /etc/somewhere
+#  facter_file: facter/kitchen.rb
+  install_custom_facts: true
+  librarian_puppet_ssl_file: 'C:/repository/dev-ops-objects/estatesgazette/cacert.pem'
+#  puppet_yum_repo: 'https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm'
   puppet_debug: true
   puppet_verbose: true
   custom_facts:
@@ -31,6 +39,10 @@ platforms:
 
 verifier:
   ruby_bindir: '/usr/bin'
-  
+
 suites:
   - name: default
+  - name: base
+    provisioner:
+      custom_facts:
+        role_name1: base
