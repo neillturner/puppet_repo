@@ -27,11 +27,6 @@ node default {
      }
      # class { 'role': }
      # Or to do Direct Module Prefix
-     if $hello != undef and $hello != '' {
-       notify {"*** hello is set to ${hello}": }
-     } else {
-       notify {"*** hello not set ***": }
-     }
      class { 'role' : prefix => 'mycompany' }
  }
 

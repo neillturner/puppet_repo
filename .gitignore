@@ -5,7 +5,7 @@
 ################
 .kitchen/
 .kitchen.local.yml
-
+.tmp
 # ignore the modules
 # since we manage module dependencies with librarian-puppet
 modules/
@@ -17,8 +17,9 @@ modules/
 tmp/
 
 #############
-# Berkshelf #
+# Librarian #
 #############
+.librarian
 Puppetfile.lock
 *~
 *#
