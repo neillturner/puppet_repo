@@ -28,16 +28,21 @@ The follow instructions are for Windows PC (it will be similar for Mac):
   * gem install kitchen-puppet
   * gem install kitchen-vagrant
   * gem install kitchen-verifier-serverspec
-7. git clone the repository https://github.com/neillturner/puppet_repo and in a command window in the puppet_repo directory run command
+7. git clone the repository https://github.com/neillturner/puppet_repo
+8. Either Run verify locally or remotely
+  * Set environment variable KITCHEN_YAML to either .kitchen.localexec.yml or .kitchen.remote.yml
+  * To run serverspec verify either locally from workstation or remotely on the server that is configured 
+  * Review the kitchen yaml file, specifying an IP address that is part of your workstation private address space or
+  use DHCP to let the network dynamically allocte IP address.
+  
+## Check everything installed
+In a command window in the puppet_repo directory run command
 ```
 kitchen list
 ```
 This will return a list if everyting is correctly installed.
 
-## Review the .kitchen.yml file
-
 ## Create Servers in Virtual Box on your Workstation.
-
 ```
 kitchen create base-nocm-centos-65 -l debug
 ```
@@ -46,6 +51,12 @@ kitchen create base-nocm-centos-65 -l debug
 ```
 kitchen converge base-nocm-centos-65 -l debug
 ```
+
+## Copy vagrant generated private key.
+If using the .kitchen.localexec.yml so the verifier can access the server get the “private_key” file of the tomcat servers from directory
+  puppet_repo/.kitchen/kitchen-vagrant/kitchen-puppet_repo-base-nocm-centos-65/.vagrant/machines/default/virtualbox
+and copy to
+  puppet_repo/private_key.pem
 
 ## Verify the server.
 ```

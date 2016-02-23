@@ -1,4 +1,4 @@
- require 'C:\repository\puppet_repo\modules_mycompany\mycompany_base\spec/spec_local_helper.rb'
+ require_relative '../spec_local_helper.rb'
 
   if os[:family] == 'ubuntu'
         describe '/etc/lsb-release' do
