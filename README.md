@@ -36,7 +36,7 @@ kitchen list
 ```
 This will return a list if everyting is correctly installed.
 
-## Create Servers in Virtual Box on your Workstation.
+## Connect to server via ssh.
 ```
 kitchen create base-nocm-centos-65 -l debug
 ```
