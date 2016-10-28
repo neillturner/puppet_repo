@@ -1,2 +1,2 @@
 ---
-apache::user: root
+apache::user: centos

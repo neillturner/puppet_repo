@@ -10,7 +10,7 @@ RSpec.configure do |config|
   set :host, ENV['TARGET_HOST']
   # ssh options at http://net-ssh.github.io/ssh/v1/chapter-2.html
   # ssh via password, set :version to :debug for debugging
-  #set :ssh_options, :user => ENV['LOGIN_USER'], :paranoid => false, :verbose => :info, :password => ENV['LOGIN_PASSWORD'] if ENV['LOGIN_PASSWORD']
+  set :ssh_options, :user => ENV['LOGIN_USER'], :paranoid => false, :verbose => :info, :password => ENV['LOGIN_PASSWORD'] if ENV['LOGIN_PASSWORD']
   # ssh via ssh key
   set :ssh_options, :user => ENV['LOGIN_USER'], :port => ENV['TARGET_PORT'], :paranoid => false, :verbose => :info, :host_key => 'ssh-rsa', :keys => [ ENV['SSH_KEY'] ] if ENV['SSH_KEY']
   set :backend, :ssh

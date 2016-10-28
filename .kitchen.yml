@@ -1,6 +1,10 @@
 ---
 driver:
-    name: vagrant
+  name: ssh_gzip
+# set to ssh private key
+  ssh_key: spec/test.pem
+  username: centos
+  sudo: true
 
 provisioner:
   name: puppet_apply
@@ -13,21 +17,15 @@ provisioner:
   librarian_puppet_ssl_file: 'C:/repository/puppet_repo/cacert.pem'
   puppet_debug: true
   puppet_verbose: true
+  ignored_paths_from_root: []
 
 platforms:
-  - name: nocm_ubuntu-12.04
-    driver_plugin: vagrant
-    driver_config:
-      box: nocm_ubuntu-12.04
-      box_url: http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210-nocm.box
-  - name: nocm_centos-6.5
-    driver_plugin: vagrant
-    driver_config:
-      box: nocm_centos-6.5
-      box_url: http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-nocm.box
+  - name: centos-7.0
 
 verifier:
   name: serverspec
+# set to true to run serverspec on your workstation
+#  remote_exec: false
 
 suites:
   - name: base
@@ -37,3 +35,9 @@ suites:
     verifier:
       patterns:
       - modules/mycompany_base/spec/acceptance/base_spec.rb
+      env_vars:
+        TARGET_HOST: 127.0.0.1
+        LOGIN_USER: centos
+        SUDO: true
+# set to ssh private key
+        SSH_KEY: spec/test.pem
