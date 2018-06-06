@@ -14,10 +14,12 @@ provisioner:
   hiera_data_path: hieradata
   require_puppet_repo: true
   require_chef_for_busser: false
+  facter_file: facter/kitchen.rb
   librarian_puppet_ssl_file: 'C:/repository/puppet_repo/cacert.pem'
   puppet_debug: true
   puppet_verbose: true
   ignored_paths_from_root: []
+  puppet_detailed_exitcodes: true
 
 platforms:
   - name: centos-7.0
@@ -31,7 +33,8 @@ suites:
   - name: base
     provisioner:
       custom_facts:
-        role_name1: base
+        role_name1: mycompany_base
+        role_name2: mycompany_webserver
     verifier:
       patterns:
       - modules/mycompany_base/spec/acceptance/base_spec.rb
